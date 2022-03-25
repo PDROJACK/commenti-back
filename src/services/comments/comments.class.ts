@@ -12,6 +12,7 @@ export class Comments extends Service {
     this.users = app.service("users");
   }
 
+  // Add a comment
   async create(data: any, params: Params) {
 
       // Attach user to comment
@@ -20,8 +21,7 @@ export class Comments extends Service {
       return super.create(data,params);
   }
 
-
-  // Find all the comments related to a url
+  // Find all the comments related to a URL
   async find(params: Params) {
 
     if(params.query && !params.query.url ) {
