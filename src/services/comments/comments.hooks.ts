@@ -8,10 +8,10 @@ const { protect } = local.hooks;
 
 export default {
   before: {
-    all: [ ],
+    all: [],
     find: [protect('password')],
     get: [],
-    create: [ authenticate('jwt') ],
+    create: [],
     update: [],
     patch: [],
     remove: []

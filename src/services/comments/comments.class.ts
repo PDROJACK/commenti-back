@@ -14,10 +14,8 @@ export class Comments extends Service {
 
   // Add a comment
   async create(data: any, params: Params) {
-
       // Attach user to comment
       data.by = params.user !== undefined ? params.user._id : null;
- 
       return super.create(data,params);
   }
 

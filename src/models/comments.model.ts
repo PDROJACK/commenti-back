@@ -4,7 +4,6 @@
 // for more of what you can do here.
 import { Application } from '../declarations';
 import { Model, Mongoose } from 'mongoose';
-import usersModel from './users.model';
 
 export default function (app: Application): Model<any> {
   const modelName = 'comments';
@@ -12,10 +11,11 @@ export default function (app: Application): Model<any> {
   const { Schema } = mongooseClient;
   const schema = new Schema({
     content: { type: String, required: true },
-    by: { type: Schema.Types.ObjectId , ref: 'users', required: true },
+    by: { type: Schema.Types.ObjectId , ref: 'users' },
     parent: { type: Schema.Types.ObjectId, ref: 'comments' },
     likes: { type: Number, default: 0 },
     url: { type: String },
+    username: { type: String },
     replies: [{ type: Schema.Types.ObjectId, ref: 'comments' }]
   }, {
     timestamps: true
