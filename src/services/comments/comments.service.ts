@@ -13,12 +13,12 @@ declare module '../../declarations' {
 }
 
 export default function (app: Application): void {
+  
   const options = {
     Model: createModel(app),
     whitelist: ['$populate'],
     paginate: app.get('paginate')
   };
-
 
   // Initialize our service with any options it requires
   app.use('/comments', new Comments(options, app));
@@ -27,4 +27,5 @@ export default function (app: Application): void {
   const service = app.service('comments');
 
   service.hooks(hooks);
+
 }

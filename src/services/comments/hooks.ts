@@ -1,6 +1,7 @@
 import { HookContext } from "@feathersjs/feathers";
 
- const addreply = async (context: HookContext) => {
+const addreply = async (context: HookContext) => {
+    
     const { _id, parent } = context.result;
 
     if(parent !== undefined) {
@@ -11,6 +12,7 @@ import { HookContext } from "@feathersjs/feathers";
         
         context.service.update(parent,parentComment);
     }
+
 };
 
 export default addreply;

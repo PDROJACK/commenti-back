@@ -29,9 +29,9 @@ export class Comments extends Service {
     const comments = await super.find({
       query: {
         $limit: 10,
-        $skip:  10  * ( params.query ? params.query.page-1: 0 ),
+        $skip:  10  * ( params.query ? params.query.page-1 : 0 ),
         url: params.query ? params.query.url : null,
-        // $populate: ['by', 'replies', {
+        //  $populate: ['by', 'replies', {
         //   path: "replies",
         //   populate: "by"
         // }]
