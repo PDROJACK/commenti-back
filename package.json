@@ -43,9 +43,10 @@
     "@types/cors": "^2.8.12",
     "@types/jsonwebtoken": "^8.5.5",
     "@types/serve-favicon": "^2.5.3",
-    "shx": "^0.3.4"
+    "shx": "^0.3.2"
   },
   "dependencies": {
+    "shx": "^0.3.2",
     "@feathersjs/authentication": "^4.5.12",
     "@feathersjs/authentication-local": "^4.5.12",
     "@feathersjs/authentication-oauth": "^4.5.12",
