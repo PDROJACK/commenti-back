@@ -1,6 +1,8 @@
 import { Params } from '@feathersjs/feathers';
 import { Service, MongooseServiceOptions } from 'feathers-mongoose';
 import { Application } from '../../declarations';
+import usersModel from '../../models/users.model';
+import { Users } from '../users/users.class';
 
 export class Comments extends Service {
 
@@ -9,14 +11,30 @@ export class Comments extends Service {
   //eslint-disable-next-line @typescript-eslint/no-unused-vars
   constructor(options: Partial<MongooseServiceOptions>, app: Application) {
     super(options);
-    this.users = app.service("users");
+    // this.users = app.service("users");
+    this.users = usersModel(app);
   }
 
   // Add a comment
   async create(data: any, params: Params) {
+      
+      if(!data.email) return null;
+
+      let user = await this.users.findOne({ email: data.email });
+
+      if(!user){
+        user = await this.users.create({
+            email: data.email
+        })
+      }
+
       // Attach user to comment
-      data.by = params.user !== undefined ? params.user._id : null;
+      data.by = user._id;
+
+      console.log(data);
+
       return super.create(data,params);
+
   }
 
   // Find all the comments related to a URL
