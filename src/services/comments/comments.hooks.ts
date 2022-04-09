@@ -21,7 +21,7 @@ export default {
     all: [protect('by.password'), protect('replies[0].by.password')],
     find: [],
     get: [],
-    create: [addReply],
+    create: [],
     update: [],
     patch: [],
     remove: []
