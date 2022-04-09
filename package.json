@@ -27,9 +27,9 @@
     "test": "npm run lint && npm run compile && npm run jest",
     "lint": "eslint src/. test/. --config .eslintrc.json --ext .ts --fix",
     "dev": "ts-node-dev --no-notify src/",
-    "start": "npm run compile && nodemon lib/",
+    "start": "npm run compile && node lib/",
     "jest": "jest --forceExit",
-    "compile": "shx rm -rf lib/ && tsc"
+    "compile": "rimraf ./lib && tsc"
   },
   "standard": {
     "env": [
@@ -46,7 +46,6 @@
     "shx": "^0.3.2"
   },
   "dependencies": {
-    "shx": "^0.3.2",
     "@feathersjs/authentication": "^4.5.12",
     "@feathersjs/authentication-local": "^4.5.12",
     "@feathersjs/authentication-oauth": "^4.5.12",
@@ -61,7 +60,7 @@
     "helmet": "^4.6.0",
     "mongodb-core": "^3.2.7",
     "mongoose": "^6.2.2",
-    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
     "serve-favicon": "^2.5.0",
     "ts-node-dev": "^1.1.8",
     "winston": "^3.6.0"
