@@ -27,7 +27,8 @@
     "test": "npm run lint && npm run compile && npm run jest",
     "lint": "eslint src/. test/. --config .eslintrc.json --ext .ts --fix",
     "dev": "ts-node-dev --no-notify src/",
-    "start": "npm run compile && node lib/",
+    "start": "pm2 link b3g5hq3vh2297dd 4lvchr9f1ol7p7v && pm2-runtime lib/index.js",
+    "build": "npm run compile",
     "jest": "jest --forceExit",
     "compile": "rimraf ./lib && tsc"
   },
